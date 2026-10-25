@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qirq Barbershop — erkaklar sartaroshxonasi, onlayn yozilish</title>
+<meta name="description" content="Qirq Barbershop: soch olish, soqol shakllash, issiq sochiq bilan qirish. Xizmat va ustani tanlab, bo‘sh vaqtga onlayn yoziling.">
+<meta name="theme-color" content="#14213d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+:root{--navy:#14213d;--navy2:#1d2f55;--red:#c8102e;--paper:#f6f6f2;--white:#fff;--ink:#1b2236;--mute:#5d667a;--line:#dcdfe6;--ok:#1f9d55;
+--head:"Barlow Condensed","Arial Narrow",Impact,sans-serif;--body:"Manrope",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;padding-bottom:env(safe-area-inset-bottom)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--head);line-height:1.02;letter-spacing:.01em}
+h2{font-size:clamp(2.2rem,5vw,3.3rem);color:var(--navy);font-weight:800}
+.sec{padding:80px 0}
+.lead{color:var(--mute);max-width:54ch;margin-top:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:1rem;border:2px solid transparent;cursor:pointer;transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#a50d26}
+.btn-line{border-color:rgba(255,255,255,.5);color:#fff}.btn-line:hover{background:rgba(255,255,255,.12)}
+
+header{position:sticky;top:0;z-index:50;background:rgba(20,33,61,.97);backdrop-filter:blur(8px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font:800 1.7rem var(--head);letter-spacing:.03em}
+.logo i{color:var(--red);transform:rotate(-20deg)}
+nav ul{display:flex;gap:28px;list-style:none}
+nav a{color:#d8def0;font-weight:600;font-size:.95rem}nav a:hover{color:#fff}
+.nav>.btn{padding:10px 20px;font-size:.9rem}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+
+.hero{background:var(--navy);color:#fff;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;min-height:calc(100svh - 68px);padding-top:44px;padding-bottom:44px}
+.hero h1{font-size:clamp(3.4rem,10vw,7rem);font-weight:800}
+.hero h1 span{color:var(--red)}
+.hero p{color:#c3cbe0;font-size:1.1rem;max-width:44ch;margin:22px 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.facts{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:36px;color:#b4bdd6;font-size:.95rem}
+.facts i{color:var(--red);margin-right:8px}
+.status{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.09);padding:7px 14px;border-radius:999px;margin-bottom:22px}
+.status b{width:9px;height:9px;border-radius:50%;background:#8a93ad}
+.status.open b{background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.25)}
+.pole-box{display:flex;justify-content:center}
+.pole{position:relative;width:128px;height:min(66vh,470px);border-radius:64px;border:6px solid #e8ebf3;overflow:hidden;box-shadow:0 0 0 8px var(--navy2),0 30px 60px rgba(0,0,0,.45)}
+.pole::before{content:"";position:absolute;inset:-120px 0;background:repeating-linear-gradient(-45deg,var(--red) 0 28px,#fff 28px 56px,#2a4a9c 56px 84px,#fff 84px 112px);animation:spin 3.2s linear infinite}
+.pole::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(255,255,255,.28) 30%,rgba(255,255,255,0) 55%,rgba(0,0,0,.4))}
+@keyframes spin{to{transform:translateY(112px)}}
+
+.menu{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.row{display:flex;align-items:center;gap:14px;padding:16px;border:2px solid var(--line);border-radius:14px;background:var(--white);cursor:pointer;text-align:left;width:100%;transition:border-color .15s,background .15s}
+.row:hover{border-color:#b9c0d2}
+.row[aria-checked=true]{border-color:var(--red);background:#fff6f7}
+.row>i.ic{flex:none;width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:1.1rem}
+.row .t{flex:1;min-width:0}
+.row h3{font-size:1.45rem;color:var(--navy);font-weight:700}
+.row p{color:var(--mute);font-size:.88rem;line-height:1.4}
+.row .pr{font:800 1.45rem var(--head);color:var(--red);white-space:nowrap;text-align:right}
+.row .pr small{display:block;font:500 .75rem var(--body);color:var(--mute)}
+.tick{flex:none;width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:transparent;font-size:.75rem}
+.row[aria-checked=true] .tick{background:var(--red);border-color:var(--red);color:#fff}
+.hint{margin-top:14px;color:var(--mute);font-size:.9rem}.hint i{color:var(--red);margin-right:6px}
+
+.why{background:var(--white)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px}
+.why-i i{font-size:1.9rem;color:var(--red);margin-bottom:14px;display:block}
+.why-i h3{font-size:1.6rem;color:var(--navy);margin-bottom:6px;font-weight:700}
+.why-i p{color:var(--mute);font-size:.95rem}
+
+.masters{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.m{background:var(--white);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.m .ph{height:160px;display:grid;place-items:center;background:var(--navy);color:#fff;font-size:3.4rem;position:relative}
+.m:nth-child(2) .ph{background:var(--navy2)}.m:nth-child(3) .ph{background:#2a1a24}
+.m .ph::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:repeating-linear-gradient(-45deg,var(--red) 0 12px,#fff 12px 24px,#2a4a9c 24px 36px,#fff 36px 48px)}
+.m .b{padding:20px}
+.m h3{font-size:1.6rem;color:var(--navy);font-weight:700}
+.m .role{color:var(--mute);font-size:.9rem}
+.m .st{color:#e0a100;margin-top:10px;font-size:.85rem}.m .st span{color:var(--mute);margin-left:6px;font-weight:700}
+
+.reviews{background:var(--navy);color:#fff}.reviews h2{color:#fff}
+.rv{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rv blockquote{background:var(--navy2);border-radius:14px;padding:26px}
+.rv .fa-quote-left{color:var(--red);font-size:1.4rem}
+.rv p{margin:12px 0 16px;color:#d8def0;font-size:.97rem}
+.rv cite{font-style:normal;font-weight:700;font-size:.92rem}.rv cite small{display:block;color:#98a3c2;font-weight:500}
+
+.book .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
+.contact{list-style:none;margin-top:28px;display:grid;gap:18px}
+.contact li{display:flex;gap:14px;align-items:flex-start}
+.contact i{flex:none;width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center}
+.contact b{display:block;color:var(--navy)}.contact span,.contact a{color:var(--mute);font-size:.95rem}.contact a:hover{color:var(--red)}
+form{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:20px}
+fieldset{border:0;display:grid;gap:10px;min-width:0}
+legend,.lb{font-weight:800;font-size:.92rem;color:var(--navy);margin-bottom:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fbfbfa;font-weight:700;font-size:.9rem;cursor:pointer;color:var(--ink)}
+.chip:hover{border-color:var(--navy)}
+.chip[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.day{display:grid;line-height:1.15;text-align:center;min-width:58px;padding:9px 8px}
+.day small{font-weight:600;font-size:.72rem;opacity:.75}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px}
+.slot{padding:10px 0;border-radius:10px;border:1.5px solid var(--line);background:#fbfbfa;font-weight:700;font-size:.92rem;cursor:pointer;color:var(--ink)}
+.slot:hover:not(:disabled){border-color:var(--navy)}
+.slot[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}
+.slot:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed;background:#eef0f4}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{font-weight:700;font-size:.9rem;color:var(--navy);display:grid;gap:6px}
+input{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;font:500 1rem var(--body);background:#fbfbfa;color:var(--ink)}
+input:focus{border-color:var(--navy);outline:none;box-shadow:0 0 0 3px rgba(20,33,61,.15)}
+.sum{background:var(--paper);border-radius:12px;padding:14px 16px;font-size:.92rem;color:var(--mute)}
+.sum b{color:var(--navy)}.sum .tot{font:800 1.5rem var(--head);color:var(--red);margin-top:2px}
+.err{color:var(--red);font-size:.88rem;min-height:1.3em;font-weight:700}
+form .btn{width:100%}
+
+.faq{background:var(--white)}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+details:first-of-type{margin-top:34px;border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:700;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary i{color:var(--red);transition:transform .2s}
+details[open] summary i{transform:rotate(45deg)}
+details p{color:var(--mute);margin-top:10px;max-width:70ch;font-size:.97rem}
+
+footer{background:var(--navy);color:#b4bdd6;padding:34px 0 40px;font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.soc{display:flex;gap:10px}
+.soc a{width:42px;height:42px;border-radius:50%;background:var(--navy2);color:#fff;display:grid;place-items:center;transition:background .2s}.soc a:hover{background:var(--red)}
+
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--navy);color:#fff;transform:translateY(110%);transition:transform .3s;padding:12px 0 calc(12px + env(safe-area-inset-bottom));box-shadow:0 -10px 30px rgba(0,0,0,.3)}
+.bar.show{transform:none}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.bar span{font-size:.92rem;color:#c3cbe0}.bar b{font:800 1.4rem var(--head);color:#fff;margin-right:6px}
+.bar .btn{padding:11px 22px;font-size:.95rem;white-space:nowrap}
+
+@media(max-width:860px){
+.burger{display:block}
+nav{position:absolute;top:68px;left:0;right:0;background:var(--navy);display:none;padding:12px 20px 22px}
+nav.open{display:block}nav ul{flex-direction:column;gap:16px}
+.nav>.btn{display:none}
+.hero .wrap{grid-template-columns:1fr;min-height:0}
+.pole-box{order:-1;justify-content:flex-start}
+.pole{width:84px;height:190px;border-width:4px}
+.menu,.grid3,.masters,.rv,.book .wrap{grid-template-columns:1fr}
+.sec{padding:58px 0}}
+@media(max-width:480px){.two{grid-template-columns:1fr}.row .pr small{display:none}.bar span{font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){.pole::before{animation:none}html{scroll-behavior:auto}.btn,.bar{transition:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo"><i class="fa-solid fa-scissors"></i> Qirq</a>
+    <nav id="nav" aria-label="Asosiy menyu"><ul>
+      <li><a href="#xizmatlar">Xizmatlar</a></li><li><a href="#nega">Nega biz</a></li><li><a href="#ustalar">Ustalar</a></li><li><a href="#sharhlar">Sharhlar</a></li><li><a href="#savollar">Savollar</a></li>
+    </ul></nav>
+    <a href="#yozilish" class="btn btn-red"><i class="fa-solid fa-calendar-check"></i> Yozilish</a>
+    <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="status" id="status"><b></b><span>Tekshirilmoqda…</span></div>
+    <h1>Uslub sizdan,<br><span>ish bizdan.</span></h1>
+    <p>Qirq Barbershop’da har mijozga alohida vaqt ajratamiz. Xizmat va ustani o‘zingiz tanlang, bo‘sh vaqtga bir daqiqada yoziling.</p>
+    <div class="cta">
+      <a href="#xizmatlar" class="btn btn-red"><i class="fa-solid fa-scissors"></i> Xizmat tanlash</a>
+      <a href="#yozilish" class="btn btn-line"><i class="fa-solid fa-calendar-check"></i> Bo‘sh vaqtlar</a>
+    </div>
+    <div class="facts">
+      <span><i class="fa-solid fa-clock"></i>Har kuni 09:00–21:00</span>
+      <span><i class="fa-solid fa-location-dot"></i>Toshkent, Chilonzor</span>
+      <span><i class="fa-solid fa-star"></i>4.9 reyting</span>
+    </div>
+  </div>
+  <div class="pole-box" aria-hidden="true"><div class="pole"></div></div>
+</div></section>
+
+<section class="sec" id="xizmatlar"><div class="wrap">
+  <h2>Xizmatlar va narxlar</h2>
+  <p class="lead">Kerakli xizmatlarni bosib belgilang. Jami narx va vaqt avtomatik hisoblanadi.</p>
+  <div class="menu" id="menu" role="group" aria-label="Xizmatlar"></div>
+  <p class="hint"><i class="fa-solid fa-circle-info"></i>Bir nechta xizmatni birga tanlash mumkin. Narxlar so‘mda.</p>
+</div></section>
+
+<section class="sec why" id="nega"><div class="wrap">
+  <h2>Nega aynan biz </h2>
+  <div class="grid3">
+    <div class="why-i"><i class="fa-solid fa-spray-can-sparkles"></i><h3>Har mijozga toza asbob</h3><p>Qaychi va mashinkalar har mijozdan keyin tozalanadi. Sochiq va peshband yangi yuvilgan.</p></div>
+    <div class="why-i"><i class="fa-solid fa-calendar-check"></i><h3>Navbatsiz, vaqtida</h3><p>Yozilgan vaqtingizda kirasiz. Kutish yo‘q, vaqtingiz o‘zingizniki.</p></div>
+    <div class="why-i"><i class="fa-solid fa-award"></i><h3>Tajribali ustalar</h3><p>Har bir ustaning kamida 5 yillik tajribasi bor. Qanday soch kerakligini birga hal qilamiz.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="ustalar"><div class="wrap">
+  <h2>Ustalar</h2>
+  <div class="masters">
+    <article class="m"><div class="ph"><i class="fa-solid fa-user-tie"></i></div><div class="b"><h3>Jasur</h3><p class="role">Katta usta, 9 yil tajriba</p><div class="st"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>5.0</span></div></div></article>
+    <article class="m"><div class="ph"><i class="fa-solid fa-user-tie"></i></div><div class="b"><h3>Dilshod</h3><p class="role">Soqol va qirish ustasi, 6 yil</p><div class="st"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><span>4.9</span></div></div></article>
+    <article class="m"><div class="ph"><i class="fa-solid fa-user-tie"></i></div><div class="b"><h3>Behruz</h3><p class="role">Zamonaviy fason, 5 yil</p><div class="st"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><span>4.8</span></div></div></article>
+  </div>
+</div></section>
+
+<section class="sec reviews" id="sharhlar"><div class="wrap">
+  <h2>Mijozlar fikri</h2>
+  <div class="rv">
+    <blockquote><i class="fa-solid fa-quote-left"></i><p>Uch yildan beri faqat shu yerga kelaman. Aytgan vaqtimda kiraman, kutib o‘tirmayman.</p><cite>Aziz<small>Doimiy mijoz</small></cite></blockquote>
+    <blockquote><i class="fa-solid fa-quote-left"></i><p>Toza va sifatli ishlashdi, soqol chizig‘i aniq chiqdi.</p><cite>Sardor<small>Soqol xizmati</small></cite></blockquote>
+    <blockquote><i class="fa-solid fa-quote-left"></i><p>O‘g‘limni olib keldim, yig‘lamadi ham. Usta bolalar bilan gaplashishni biladi.</p><cite>Otabek<small>Bolalar sochi</small></cite></blockquote>
+  </div>
+</div></section>
+
+<section class="sec book" id="yozilish"><div class="wrap">
+  <div>
+    <h2>Vaqtga yozilish</h2>
+    <p class="lead">Xizmat, usta va vaqtni tanlang. So‘rov Telegram orqali bizga boradi, vaqtni tasdiqlab javob beramiz.</p>
+    <ul class="contact">
+      <li><i class="fa-solid fa-location-dot"></i><div><b>Manzil</b><a href="https://maps.google.com/?q=Chilonzor+Toshkent" target="_blank" rel="noopener">(Asosiy - manzil) Toshkent, Chilonzor, 7-kvartal</a></div></li>
+      <li><i class="fa-solid fa-phone"></i><div><b>Telefon</b><a href="tel:+998901234567">+998 90 123 45 67</a></div></li>
+      <li><i class="fa-solid fa-clock"></i><div><b>Ish vaqti</b><span>Har kuni 09:00–21:00</span></div></li>
+    </ul>
+  </div>
+  <form id="form" novalidate>
+    <fieldset><legend>1. Usta</legend><div class="chips" id="masters"></div></fieldset>
+    <fieldset><legend>2. Kun</legend><div class="chips" id="days"></div></fieldset>
+    <fieldset><legend>3. Vaqt</legend><div class="slots" id="slots"></div></fieldset>
+    <div class="two">
+      <label>Ismingiz<input id="f-name" type="text" autocomplete="name" placeholder="Masalan, Aziz"></label>
+      <label>Telefon<input id="f-phone" type="tel" autocomplete="tel" placeholder="+998 __ ___ __ __"></label>
+    </div>
+    <div class="sum" id="sum"></div>
+    <div class="err" id="err" role="alert"></div>
+    <button class="btn btn-red" type="submit"><i class="fa-brands fa-telegram"></i> Telegram orqali yuborish</button>
+  </form>
+</div></section>
+
+<section class="sec faq" id="savollar"><div class="wrap">
+  <h2>Ko‘p so‘raladigan savollar</h2>
+  <details><summary>Oldindan yozilish shartmi?<i class="fa-solid fa-plus"></i></summary><p>Shart emas, lekin yozilsangiz navbat kutmaysiz. Yozilmagan mijozlar bo‘sh joy bo‘lsa qabul qilinadi.</p></details>
+  <details><summary>Kechiksam yoki kela olmasam nima qilaman?<i class="fa-solid fa-plus"></i></summary><p>Iltimos, kamida 1 soat oldin telefon yoki Telegram orqali xabar bering. Vaqtni boshqa kunga ko‘chiramiz.</p></details>
+  <details><summary>Qanday to‘lov usullari bor?<i class="fa-solid fa-plus"></i></summary><p>Naqd pul, Click, Payme va karta orqali to‘lash mumkin.</p></details>
+  <details><summary>Bolalar uchun alohida xizmat bormi?<i class="fa-solid fa-plus"></i></summary><p>Ha, 12 yoshgacha bolalar uchun alohida xizmat bor. Usta bolalar bilan ishlashga o‘rgangan.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>© <span id="yr"></span> Qirq Barbershop. Barcha huquqlar himoyalangan.</span>
+  <div class="soc">
+    <a href="https://t.me/USERNAME" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+    <a href="https://instagram.com/USERNAME" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="tel:+998901234567" aria-label="Qo‘ng‘iroq qilish"><i class="fa-solid fa-phone"></i></a>
+  </div>
+</div></footer>
+
+<div class="bar" id="bar" aria-live="polite"><div class="wrap">
+  <span><b id="bar-total">0</b>so‘m · <span id="bar-info"></span></span>
+  <a href="#yozilish" class="btn btn-red"><i class="fa-solid fa-calendar-check"></i> Yozilish</a>
+</div></div>
+
+<script>
+/* ===== SOZLAMA: mijozga moslash uchun faqat shu qismni o‘zgartiring ===== */
+const TG_USERNAME = "USERNAME";            // Telegram username (@ belgisiz)
+const SHOP_NAME   = "Qirq Barbershop";
+const OPEN_H = 9, CLOSE_H = 21;            // ish vaqti
+const MASTERS = ["Istalgan usta", "Jasur", "Dilshod", "Behruz"];
+const SERVICES = [
+  {id:"soch",  ic:"fa-scissors",   n:"Erkaklar sochi",           d:"Mashinka va qaychi, yuvish bilan", p:70000,  m:45},
+  {id:"soqol", ic:"fa-user-tie",   n:"Soqol shakllash",          d:"Shakl tanlash, chiziq va tekislash", p:50000, m:30},
+  {id:"kombo", ic:"fa-crown",      n:"Soch + soqol",             d:"Ikkala xizmat birga, arzonroq",     p:110000, m:75},
+  {id:"bola",  ic:"fa-child",      n:"Bolalar sochi",            d:"12 yoshgacha, sabr bilan",          p:50000,  m:30},
+  {id:"niqob", ic:"fa-droplet",    n:"Yuz tozalash niqobi",      d:"Teri tozalanadi va yengillashadi",  p:40000,  m:20}
+];
+/* ======================================================================= */
+
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2, "0");
+const fmt = n => n.toLocaleString("en-US").replace(/,/g, " ");
+const st = {sel:new Set(), master:0, date:null, time:null};
+$("yr").textContent = new Date().getFullYear();
+
+/* menyu */
+const nav = $("nav"), burger = $("burger");
+const setBurger = o => { nav.classList.toggle("open", o); burger.setAttribute("aria-expanded", o); burger.innerHTML = `<i class="fa-solid fa-${o ? "xmark" : "bars"}"></i>`; };
+burger.onclick = () => setBurger(!nav.classList.contains("open"));
+nav.onclick = e => { if (e.target.tagName === "A") setBurger(false); };
+
+/* hozir ochiq/yopiq */
+(function () {
+  const h = new Date().getHours(), open = h >= OPEN_H && h < CLOSE_H, s = $("status");
+  s.classList.toggle("open", open);
+  s.lastElementChild.textContent = open ? `Hozir ochiq · ${pad(CLOSE_H)}:00 gacha` : `Hozir yopiq · ertaga ${pad(OPEN_H)}:00 da ochiladi`;
+})();
+
+/* xizmatlar */
+$("menu").innerHTML = SERVICES.map(s => `
+  <button type="button" class="row" role="checkbox" aria-checked="false" data-id="${s.id}">
+    <i class="fa-solid ${s.ic} ic"></i>
+    <span class="t"><h3>${s.n}</h3><p>${s.d}</p></span>
+    <span class="pr">${fmt(s.p)}<small>${s.m} daqiqa</small></span>
+    <span class="tick"><i class="fa-solid fa-check"></i></span>
+  </button>`).join("");
+$("menu").onclick = e => {
+  const b = e.target.closest(".row"); if (!b) return;
+  const id = b.dataset.id, on = !st.sel.has(id);
+  on ? st.sel.add(id) : st.sel.delete(id);
+  b.setAttribute("aria-checked", on);
+  refresh();
+};
+function totals() {
+  let p = 0, m = 0, names = [];
+  SERVICES.forEach(s => { if (st.sel.has(s.id)) { p += s.p; m += s.m; names.push(s.n); } });
+  return {p, m, names};
+}
+function refresh() {
+  const t = totals(), n = st.sel.size;
+  $("bar").classList.toggle("show", n > 0);
+  $("bar-total").textContent = fmt(t.p);
+  $("bar-info").textContent = `${n} ta xizmat · ${t.m} daqiqa`;
+  $("sum").innerHTML = n
+    ? `<b>Tanlangan:</b> ${t.names.join(", ")}<div class="tot">${fmt(t.p)} so‘m · ${t.m} daqiqa</div>`
+    : `Xizmat tanlanmagan. <a href="#xizmatlar" style="color:var(--red);font-weight:700">Xizmat tanlash</a>`;
+}
+
+/* usta, kun, vaqt */
+function chips(id, items, key) {
+  const box = $(id);
+  box.innerHTML = items.map((x, i) => `<button type="button" class="chip ${key === "date" ? "day" : ""}" aria-pressed="${st[key] === (key === "master" ? i : x.v)}" data-i="${i}">${x.l}</button>`).join("");
+  box.onclick = e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    st[key] = key === "master" ? +b.dataset.i : items[+b.dataset.i].v;
+    st.time = null; chips(id, items, key); renderSlots();
+  };
+}
+const WD = ["Yak", "Dush", "Sesh", "Chor", "Pay", "Jum", "Shan"];
+const days = Array.from({length: 7}, (_, i) => {
+  const d = new Date(); d.setDate(d.getDate() + i);
+  const v = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  return {v, l: `<small>${i === 0 ? "Bugun" : i === 1 ? "Ertaga" : WD[d.getDay()]}</small>${d.getDate()}`, txt: i === 0 ? "bugun" : i === 1 ? "ertaga" : `${d.getDate()}.${pad(d.getMonth() + 1)}`};
+});
+st.date = days[0].v;
+chips("masters", MASTERS.map((m, i) => ({v: i, l: m})), "master");
+chips("days", days, "date");
+
+function hash(s) { let h = 7; for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h; }
+function renderSlots() {
+  const now = new Date(), isToday = st.date === days[0].v, nowMin = now.getHours() * 60 + now.getMinutes() + 30;
+  let html = "", free = 0;
+  for (let h = OPEN_H; h < CLOSE_H; h++) for (const m of [0, 30]) {
+    const t = `${pad(h)}:${pad(m)}`;
+    const busy = hash(st.date + MASTERS[st.master] + t) % 4 === 0;   // NAMUNA: haqiqiy band vaqtlar serverdan keladi
+    const past = isToday && h * 60 + m < nowMin;
+    const off = busy || past; if (!off) free++;
+    html += `<button type="button" class="slot" ${off ? "disabled" : ""} aria-pressed="${st.time === t}">${t}</button>`;
+  }
+  $("slots").innerHTML = free ? html : `<p class="hint" style="grid-column:1/-1">Bu kunga bo‘sh vaqt qolmadi. Boshqa kunni tanlang.</p>`;
+}
+$("slots").onclick = e => {
+  const b = e.target.closest(".slot"); if (!b || b.disabled) return;
+  st.time = b.textContent; renderSlots();
+};
+renderSlots(); refresh();
+
+/* yuborish */
+$("form").onsubmit = e => {
+  e.preventDefault();
+  const name = $("f-name").value.trim(), phone = $("f-phone").value.trim(), err = $("err");
+  if (!st.sel.size) return err.textContent = "Kamida bitta xizmat tanlang.";
+  if (!st.time) return err.textContent = "Vaqtni tanlang.";
+  if (name.length < 2) return err.textContent = "Ismingizni yozing.";
+  if (phone.replace(/\D/g, "").length < 9) return err.textContent = "Telefon raqamini to‘liq yozing.";
+  err.textContent = "";
+  const t = totals(), d = days.find(x => x.v === st.date);
+  const text = `${SHOP_NAME}ga yozilish\nIsm: ${name}\nTelefon: ${phone}\nXizmat: ${t.names.join(", ")}\nUsta: ${MASTERS[st.master]}\nKun: ${d.txt} (${st.date})\nVaqt: ${st.time}\nJami: ${fmt(t.p)} so‘m, ${t.m} daqiqa`;
+  window.open(`https://t.me/${TG_USERNAME}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+};
+</script>
+</body>
+</html>
